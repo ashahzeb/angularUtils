@@ -235,7 +235,8 @@
                 maxSize: '=?',
                 onPageChange: '&?',
                 paginationId: '=?',
-                autoHide: '=?'
+                autoHide: '=?',
+                onExportCSV: '&?'
             },
             link: dirPaginationControlsLinkFn
         };
@@ -332,6 +333,12 @@
                     paginationService.setCurrentPage(paginationId, num);
                 }
             };
+
+            scope.exportDataToCSV = function(){
+                if(scope.onExportCSV){
+                    scope.onExportCSV();
+                }
+            }
 
             /**
              * Custom "track by" function which allows for duplicate "..." entries on long lists,
